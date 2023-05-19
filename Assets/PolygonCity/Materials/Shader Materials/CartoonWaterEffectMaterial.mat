@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-1210891471632575045
+--- !u!114 &-2168511373398172074
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,8 +20,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: WatterEffectsMaterial
-  m_Shader: {fileID: -6465566751694194690, guid: 66bf4dc04608e9846be3dea32b2e92c3, type: 3}
+  m_Name: CartoonWaterEffectMaterial
+  m_Shader: {fileID: -6465566751694194690, guid: b4a989be5e1ee114f8ae66d28257d535, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
@@ -32,18 +32,24 @@ Material:
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
-    m_TexEnvs: []
+    m_TexEnvs:
+    - _CartonWavesTexture:
+        m_Texture: {fileID: 2800000, guid: 958566f96e1b6ad47a889ae5298501eb, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Alpha: 1
     - _BUILTIN_QueueControl: 0
     - _BUILTIN_QueueOffset: 0
-    - _CellDensity: 1000
-    - _Power: 6.36
-    - _TimeMultiplier: 1
+    - _DistortionIntensity: 1.5
+    - _DistortionScale: 5
+    - _DistortionSpeed: 0.001
+    - _TimeMulitplier: 1
     m_Colors:
-    - _BaseColor: {r: 0, g: 0.2610607, b: 1, a: 1}
-    - _Offset: {r: 0, g: 0, b: 0, a: 0}
-    - _Tiling: {r: 0, g: 0, b: 0, a: 0}
-    - _WavesColor: {r: 1.58698, g: 1.58698, b: 5.340313, a: 0}
+    - _BaseColor: {r: 0.2216981, g: 0.806997, b: 1, a: 0}
+    - _FoamColor: {r: 1, g: 1, b: 1, a: 0}
+    - _FoamEdgeColor: {r: 0, g: 0.1990733, b: 1, a: 0}
+    - _Pan: {r: 0.5, g: 0, b: 0, a: 0}
+    - _Tiling: {r: 1000, g: 1000, b: 0, a: 0}
+    - _offset: {r: 0.0002, g: 0.0002, b: 0, a: 0}
   m_BuildTextureStacks: []
