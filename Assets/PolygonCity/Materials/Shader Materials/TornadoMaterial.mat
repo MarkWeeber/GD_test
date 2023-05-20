@@ -30,7 +30,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Alpha: 0.469
+    - _Alpha: 0.318
     - _BUILTIN_AlphaClip: 1
     - _BUILTIN_Blend: 3
     - _BUILTIN_CullMode: 2
@@ -42,17 +42,17 @@ Material:
     - _BUILTIN_ZTest: 4
     - _BUILTIN_ZWrite: 0
     - _BUILTIN_ZWriteControl: 0
-    - _Emission: 1.79
-    - _FresnelGolw: 2
-    - _FresnelPower: 2
+    - _Emission: 1
+    - _FresnelGolw: 1.5
+    - _FresnelPower: 0.75
     - _TimeSpeed: 0.5
-    - _WaveSpeed: -0.5
+    - _WaveSpeed: 1
     - _WavesNumber: 3
     m_Colors:
-    - _BaseColor: {r: 1, g: 0.59607846, b: 0, a: 0}
-    - _FresnelColor: {r: 1, g: 1, b: 1, a: 0}
+    - _BaseColor: {r: 0, g: 0, b: 2, a: 1}
+    - _FresnelColor: {r: 4, g: 4, b: 4, a: 1}
     - _Panning: {r: -0.2, g: -0.5, b: 0, a: 0}
-    - _Reel: {r: 10, g: 0.3, b: 5, a: 0}
+    - _Reel: {r: 10, g: 0.3, b: 0, a: 0}
     - _Tiling: {r: 1, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &1047231249831549225

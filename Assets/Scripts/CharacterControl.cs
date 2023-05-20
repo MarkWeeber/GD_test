@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
@@ -6,8 +5,8 @@ public class CharacterControl : MonoBehaviour
 {
     [SerializeField] private float walkingSpeed = 5f;
     [SerializeField] private float runningSpeed = 15f;
-    [SerializeField] private int laps = 2;
-    [SerializeField] private bool infiniteLaps = false;
+    [Tooltip(tooltip:"Lap count, if 0 or less then it will be infinite")]
+    [SerializeField] private int lapCount = 1;
     [SerializeField] Transform waypointsParent;
     [SerializeField] private float turnSpeed = 12f;
     [SerializeField] private LayerMask waypointLayerMask;
@@ -18,6 +17,7 @@ public class CharacterControl : MonoBehaviour
     private Waypoint _nextWaypoint;
     private int _currentWaypointIndex = 0;
     private int _waypointsSize;
+    private int _remainingLapCount;
     private Vector3 _currentMovement = Vector3.zero;
     private float _currentSpeed;
 
@@ -39,12 +39,13 @@ public class CharacterControl : MonoBehaviour
                 _currentSpeed = walkingSpeed;
             }
         }
+        _remainingLapCount = (lapCount>0)? lapCount : 1;
     }
 
     
     private void Update()
     {
-        if (_waypointsSize > 0)
+        if (_waypointsSize > 0 && _remainingLapCount > 0)
         {
             MoveTowardsWaypoint();
             RotateTowardsWaypoint();
@@ -56,6 +57,11 @@ public class CharacterControl : MonoBehaviour
     {
         _currentMovement = (_nextWaypoint.transform.position - this.transform.position).normalized;
         _charController.Move(_currentMovement * _currentSpeed  * Time.deltaTime);
+    }
+
+    private void StopMovement()
+    {
+        _charController.Move(Vector3.zero);
     }
 
     private void SetAnimatorParameters()
@@ -85,9 +91,14 @@ public class CharacterControl : MonoBehaviour
                 {
                     _currentSpeed = walkingSpeed;
                 }
-                if (_currentWaypointIndex == _waypointsSize - 1)
+                if (_currentWaypointIndex == _waypointsSize - 1) // lap finished
                 {
                     _currentWaypointIndex = 0;
+                    _remainingLapCount = (lapCount > 0) ? _remainingLapCount - 1 : 1;
+                    if (_remainingLapCount <= 0)
+                    {
+                        StopMovement();
+                    }
                 }
                 else
                 {
